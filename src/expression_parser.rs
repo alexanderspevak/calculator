@@ -209,7 +209,6 @@ pub fn check_operator_char_order(
     previous_char: Option<char>,
 ) -> Result<(), ParsingError> {
     if previous_char.is_none() && !current_char.is_numeric() && current_char != '(' {
-        println!("returns 1");
         return Err(ParsingError::InvalidInput);
     }
 
@@ -217,7 +216,6 @@ pub fn check_operator_char_order(
         if previous_char
             .is_some_and(|previous_char| previous_char == ')' || previous_char.is_numeric())
         {
-            println!("returns 1.1");
             return Err(ParsingError::InvalidInput);
         } else {
             return Ok(());
@@ -226,12 +224,10 @@ pub fn check_operator_char_order(
 
     if let Some(previous_char) = previous_char {
         if !previous_char.is_numeric() && previous_char != ')' {
-            println!("returns 2");
             return Err(ParsingError::InvalidInput);
         }
         Ok(())
     } else {
-        println!("returns 3");
         Err(ParsingError::InvalidInput)
     }
 }

@@ -21,7 +21,7 @@ pub fn run_interface() {
             Ok(expression) => {
                 println!("Result: {}", expression.calculate())
             }
-            Err(parsing_error) => println!("{}", parsing_error),
+            Err(parsing_error) => println!("{parsing_error}"),
         }
     }
 }
