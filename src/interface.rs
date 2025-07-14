@@ -19,7 +19,6 @@ pub fn run_interface() {
     loop {
         match get_expression_from_user_input::<ReversePolishNotation>() {
             Ok(expression) => {
-                println!("Notation: {:?}", expression);
                 println!("Result: {}", expression.calculate())
             }
             Err(parsing_error) => println!("{}", parsing_error),
